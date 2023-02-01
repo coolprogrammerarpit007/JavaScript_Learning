@@ -258,11 +258,129 @@ const john = {
   },
 };
 
-console.log(mark.calcBMI());
-console.log(john.calcBMI());
+// console.log(mark.calcBMI());
+// console.log(john.calcBMI());
 const str = `${
   mark.BMI > john.BMI
     ? `Mark's BMI(${mark.BMI}) is higher than john's BMI(${john.BMI})`
     : `John's BMI(${john.BMI}) is higher than Mark's BMI(${mark.BMI})`
 }`;
-console.log(str);
+// console.log(str);
+
+// Itteration in JavaScript
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting Weight ${rep} times.`);
+// }
+
+// looping through Arrays
+const types = [];
+
+const jonasArray = [
+  "Johnas",
+  "Scmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+];
+
+for (let i = 0; i < jonasArray.length; i++) {
+  // console.log(jonasArray[i], typeof jonasArray[i]);
+  types.push(typeof jonasArray[i]);
+}
+
+// console.log(types);
+
+// Continue and Break Statements
+// Continue statement is to exit the current Iteration of the loop and move to the next Iteration.
+
+// On the other hand break is to completely end/terminate the whole loop
+
+// console.log(`----- Only Strings -----`);
+
+const newTypes = [];
+
+// for (let i = 0; i < jonasArray.length; i++) {
+//   if (typeof jonasArray[i] !== "string") {
+//     continue;
+//   }
+//   newTypes.push(typeof jonasArray[i]);
+// }
+
+// console.log(`New Types Array: `, newTypes);
+
+// Break Statements
+
+for (let i = 0; i < jonasArray.length; i++) {
+  if (typeof jonasArray[i] === "number") {
+    break;
+  }
+  newTypes.push(typeof jonasArray[i]);
+}
+
+// console.log(`New Types Array: `, newTypes);
+
+// Looping Backwards
+
+// for (let i = jonasArray.length - 1; i >= 0; i--) {
+//   console.log(`Looping Backwards:${i}, ${jonasArray[i]}`);
+// }
+
+// Nested loop
+
+// for (let i = 1; i <= 4; i++) {
+// console.log(`Starting Exxercise: ${i}`);
+
+// console.log(`-------------!!!!---------------`);
+
+// for (let j = 1; j <= 5; j++) {
+// console.log(`Lifting Weight Repeation: ${j}`);
+// }
+// }
+
+// While loop in JavaScript
+
+// let dice = Math.floor(Math.random() * 6 + 1);
+
+// while (dice !== 6) {
+//   console.log(`Roll the dice: ${dice}`);
+//   dice = Math.floor(Math.random() * 6 + 1);
+//   if (dice === 6) {
+//     console.log(`Loop is about to end: at ${dice}`);
+//   }
+// }
+
+// Coding Challenge #4:-
+
+// Test data: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+
+const newBills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const newCalcTip = (bill) => {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const avgBill = function (bills) {
+  let sum = 0;
+  for (let i = 0; i < bills.length; i++) {
+    sum = sum + bills[i];
+  }
+  return sum / bills.length;
+};
+
+const newTips = [];
+const newTotals = [];
+
+newBills.forEach((bill, index) => {
+  newTips[index] = newCalcTip(bill);
+});
+
+newBills.forEach((bill, index) => {
+  newTotals[index] = bill + newTips[index];
+});
+
+console.log(newBills);
+console.log(newTips);
+console.log(newTotals);
+const averageBillToPay = avgBill(newTotals);
+console.log(averageBillToPay);
