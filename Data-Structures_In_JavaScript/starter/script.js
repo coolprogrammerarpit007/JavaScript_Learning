@@ -78,6 +78,135 @@ const restaurant = {
 
 /* ************************* */
 
+//  SETS IN JAVASCRIPT
+
+// Sets are collection of unique values
+//  Sets are also Itterable and order in sets is irrevelent
+// const orderSet = new Set([
+//   'pizza',
+//   'pasta',
+//   'pizza',
+//   'risotto',
+//   'pizza',
+//   'pasta',
+// ]);
+
+// console.log(orderSet); // will return unique values
+// console.log(new Set('Jonas')); // will return {'J','o','n`,'a`,`s`}
+
+// // Woring with Sets
+// console.log(orderSet.size); // returns size of the set
+// console.log(orderSet.has('pizza'));
+// console.log(orderSet.has('Pizza'));
+// orderSet.add('Garlic Bread');
+// orderSet.add('Garlic Bread');
+// orderSet.delete('risotto');
+// // orderSet.clear();
+// console.log(orderSet);
+
+// // Itterating over the set values
+// for (const order of orderSet) {
+//   console.log(order);
+// }
+
+// The main purpose of set is to remove duplicates from arrays
+// const staffs = [
+// 'waiter',
+// 'waiter',
+// 'chef',
+// 'manager',
+// 'chef',
+// 'manager',
+// 'waiter',
+// ];
+
+// const staffUnique = [...new Set(staffs)];
+// console.log(staffUnique);
+// Riteraving values from sets
+// there can not be any value retrieved from the set
+/* ************************* */
+
+/* ************************* */
+
+// Maps in JavaScript
+// Map Fundamentals
+// Maps are more useful than Sets
+// Just like objects data is scored as key-value pair in Maps. The big difference b/w objects and maps is that in Maps keys can be of any type in Map
+
+const rest = new Map();
+rest.set(`name`, 'Classicano Italiano');
+rest.set(1, 'Firenze, Italy');
+rest.set(2, 'Lisbon, Portugal');
+// console.log(rest);
+
+// set method returns new set allows us to chain new set methods
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set(`open`, 11)
+  .set(`close`, 23)
+  .set(true, `we are open`)
+  .set(false, `we are closed!!`);
+// console.log(rest);
+
+// To read data from the map we use the get method
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+
+const time = 15;
+// console.log(rest.get(time > rest.get(`open`) && time < rest.get(`close`)));
+// console.log(rest.has(`categories`));
+rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+// rest.clear();
+const arr1 = [1, 2];
+rest.set(arr1, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+// console.log(rest);
+// console.log(rest.get(arr1));
+
+rest.get();
+
+// Itteration in Maps
+// Another way to populating Map
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['Correct', 3],
+  [true, 'Correct'],
+  [false, 'Try Again!!'],
+]);
+
+question.set('What is your next programming language will be: ?', 'Python');
+// console.log(question);
+
+// Convert Object to Map
+// console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
+
+// Itteration over map
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') {
+//     console.log(`Answer ${key}: ${value}`);
+//   }
+// }
+
+// const answer = Number(prompt(`Your Answer: `));
+// console.log(answer);
+
+// console.log(question.get(question.get('Correct') === answer));
+
+// Convert Map to an Array
+// console.log([...question]);
+/* ************************* */
+
+/* ************************* */
+
 // OPTIONAL CHAINNG
 // optional chaining is used to check if a given property exist or not in object so that's why ES6 Introduces Optional chaining which returns undefined if certain property don't exist.
 //without optioonal chaining to check if property exist or not
@@ -479,49 +608,115 @@ const game = {
 
 /* ********************************* */
 
+//  Coding Challenge# 3:-
+
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '� Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '� Substitution'],
+  [64, '� Yellow card'],
+  [69, '� Red card'],
+  [70, '� Substitution'],
+  [72, '� Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '� Yellow card'],
+]);
+
+// console.log(gameEvents);
+
+// Task !1:-
+
+const events = [...gameEvents.values()];
+const uniqueEvents = [...new Set(events)];
+// console.log(uniqueEvents);
+
+// Task 2:-
+gameEvents.delete(64);
+// console.log(gameEvents);
+
+// Task 3:-
+
+// const eventTime = [...gameEvents.keys()];
+// let sum = 0;
+
+// for (const [time, value] of gameEvents) {
+//   console.log(`Event: ${value} happened at: ${time}`);
+//   sum += time;
+// }
+// console.log(sum);
+// let avgEventTime = sum / gameEvents.size;
+// console.log(avgEventTime);
+
+const gameMinutes = 90;
+const totalGameEvents = gameEvents.size;
+// console.log(totalGameEvents);
+// console.log(
+//   `An event happened, on average, every ${
+//     gameMinutes / totalGameEvents
+//   } Minutes`
+// );
+// console.log(eventTime);
+
+// Task 4::-
+
+const midInterval = 45;
+// for (const [time, event] of gameEvents) {
+//   if (time < midInterval) {
+//     console.log(`[First Half]${time}: ${event}`);
+//   } else {
+//     console.log(`[Second Half]${time}: ${event}`);
+//   }
+// }
+//
+/* ********************************* */
+
+/* ********************************* */
+
 // Coding Challenge: 2
 
 // Task: 1
-console.log(`Task 1`);
-for (const [goal, player] of game.scored.entries()) {
-  console.log(`Goal ${goal + 1}: ${player}`);
-}
+// console.log(`Task 1`);
+// for (const [goal, player] of game.scored.entries()) {
+//   console.log(`Goal ${goal + 1}: ${player}`);
+// }
 
 // Task: 2
-console.log(`Task 2`);
-let totalOddScore = 0;
-for (let odd of Object.values(game.odds)) {
-  // console.log(odd);
-  totalOddScore += odd;
-}
+// console.log(`Task 2`);
+// let totalOddScore = 0;
+// for (let odd of Object.values(game.odds)) {
+//   // console.log(odd);
+//   totalOddScore += odd;
+// }
 
-const numberOfOdds = Object.values(game.odds).length;
+// const numberOfOdds = Object.values(game.odds).length;
 // console.log(numberOfOdds);
-console.log(`Average Odd: ${totalOddScore / numberOfOdds}`);
+// console.log(`Average Odd: ${totalOddScore / numberOfOdds}`);
 
 // Task 3:-
-console.log(`Task 3`);
-const { team1, team2 } = game;
+// console.log(`Task 3`);
+// const { team1, team2 } = game;
 // console.log(team1);
 
-for (const [result, odd] of Object.entries(game.odds)) {
-  // console.log(result);
-  if (result === 'team1') {
-    console.log(`Odd of victory ${team1}: ${odd}`);
-  } else if (result === 'team2') {
-    console.log(`Odd of victory ${team2}: ${odd}`);
-  } else {
-    console.log(`Odd of draw: ${odd}`);
-  }
-}
+// for (const [result, odd] of Object.entries(game.odds)) {
+//   // console.log(result);
+//   if (result === 'team1') {
+//     console.log(`Odd of victory ${team1}: ${odd}`);
+//   } else if (result === 'team2') {
+//     console.log(`Odd of victory ${team2}: ${odd}`);
+//   } else {
+//     console.log(`Odd of draw: ${odd}`);
+//   }
+// }
 
 // Bonus Challenge:
-const scores = {};
-for (let player of game.scored) {
-  // console.log(player);
-  scores[player] ? scores[player]++ : (scores[player] = 1);
-}
-console.log(scores);
+// const scores = {};
+// for (let player of game.scored) {
+//   // console.log(player);
+//   scores[player] ? scores[player]++ : (scores[player] = 1);
+// }
+// console.log(scores);
 
 // console.log(team1);
 // console.log(team2);
